@@ -2,6 +2,7 @@
  let untyped = '';
  let typed = '';
  let score = '0';
+ let typeCount = 0;
  
  // 必要なHTML要素の取得
  const untypedfield = document.getElementById('untyped');
@@ -9,6 +10,7 @@
  const wrap = document.getElementById('wrap');
  const start = document.getElementById('start');
  const count = document.getElementById('count');
+ 
  
  // 複数のテキストを格納する配列
  const textLists = [
@@ -64,12 +66,16 @@ const keyPress = e => {
   untyped = untyped.substring(1);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
+  
+  
 
   //テキストがなくなったら新しいテキストを表示
   if(untyped === '') {
     createText();
   }
 };
+
+
 
 //タイピングスキルのランクを判定
 const rankCheck = score => {
@@ -91,6 +97,8 @@ if(score < 100) {
 //生成したメッセージと一緒に文字列を返す
 return `${score}文字打てました！\n${text}\n [OK] リトライ / [キャンセル]終了`;
 };
+
+
 
 //ゲームを終了
 const gameOver = id => {
@@ -141,3 +149,10 @@ start.addEventListener('click', () => {
 document.addEventListener('keypress',keyPress);
 });
 untypedfield.textContent = 'スタートボタンで開始';
+
+//タイプ数の表示  
+document.addEventListener('keydown', function() {
+  typeCount++;
+  document.getElementById('typecount').textContent = typeCount;
+  
+});
