@@ -1,8 +1,7 @@
  // 変数の初期化
  let untyped = '';
  let typed = '';
- let score = '0';
- let typeCount = 0;
+ let score = 0;
  
  // 必要なHTML要素の取得
  const untypedfield = document.getElementById('untyped');
@@ -10,6 +9,7 @@
  const wrap = document.getElementById('wrap');
  const start = document.getElementById('start');
  const count = document.getElementById('count');
+ const lettercount = document.getElementById('lettercount');
  
  
  // 複数のテキストを格納する配列
@@ -66,6 +66,8 @@ const keyPress = e => {
   untyped = untyped.substring(1);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
+  lettercount.textContent = score;
+  
   
   
 
@@ -150,9 +152,12 @@ document.addEventListener('keypress',keyPress);
 });
 untypedfield.textContent = 'スタートボタンで開始';
 
-//タイプ数の表示  
-document.addEventListener('keydown', function() {
-  typeCount++;
-  document.getElementById('typecount').textContent = typeCount;
   
-});
+  
+  
+ 
+  
+  
+  
+
+  

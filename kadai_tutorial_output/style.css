@@ -21,7 +21,7 @@ body {
   
 }
 /* タイプ数の表示 */
-.typecount {
+.lettercount {
   margin: 0;
   font-weight: bold;
   color: pink; 
